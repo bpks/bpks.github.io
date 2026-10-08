@@ -1,609 +1,450 @@
-<!DOCTYPE html>
-
-<!DOCTYPE html>
-<html class="dark" lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Pavan B - Azure Data Engineer Portfolio</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "azure-blue": "#0078D4",
-            "slate-dark": "#1a1a2e",
-            "slate-light": "#0f3460",
-            "azure": "#0078D4",
-            "light-azure": "#64B5F6",
-            "charcoal": "#2d3436",
-            "dark-bg": "#1a1a2e",
-            "primary": "#0078D4",
-            "background-light": "#f6f7f8",
-            "background-dark": "#1a1a2e"
-          },
-          fontFamily: {
-            "display": ["Space Grotesk", "sans-serif"],
-            "sans": ["Space Grotesk", "sans-serif"]
-          },
-          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-        },
-      },
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pavan K | Senior Data Engineer</title>
+<meta name="description" content="Senior Data Engineer with 12+ years building and running secure, scalable cloud data platforms on Azure and Microsoft Fabric. Portfolio, experience and a featured synthetic-data platform project.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Pavan K | Senior Data Engineer">
+<meta property="og:description" content="Secure, scalable cloud data platforms on Azure and Microsoft Fabric, delivered as code and run to agreed service levels.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b6e6e'/%3E%3Cpath d='M9 22V10h7a4 4 0 0 1 0 8h-7' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --surface-2: #f3f1ec;
+    --ink: #1b1f24;
+    --muted: #55606b;
+    --line: #e2dfd7;
+    --accent: #0b6e6e;
+    --accent-strong: #08504f;
+    --on-accent: #ffffff;
+    --focus: #b45309;
+    --bronze: #a8672a;
+    --silver: #6f7b8b;
+    --gold: #a98100;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .05), 0 6px 20px rgba(20, 24, 28, .05);
+    --radius: 14px;
+    --maxw: 1080px;
+    --gutter: 16px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111518;
+      --surface: #181d21;
+      --surface-2: #1f262b;
+      --ink: #eceff1;
+      --muted: #a2adb7;
+      --line: #2c353b;
+      --accent: #4cc2bd;
+      --accent-strong: #7fd9d4;
+      --on-accent: #08201f;
+      --focus: #f6ad55;
+      --bronze: #d99a5b;
+      --silver: #aab4c2;
+      --gold: #e3bc3e;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 20px rgba(0, 0, 0, .3);
+      color-scheme: dark;
     }
-  </script>
-  <style type="text/tailwindcss">
-    :root {
-      --primary-azure: #0078D4;
-      --azure-blue: #0078D4;
-      --light-blue: #64B5F6;
-      --bg-dark: #1a1a2e;
-      --card-charcoal: #2d3436;
-      --aws-orange: #FF9900;
-      --background-light: #f6f7f8;
-      --background-dark: #1a1a2e;
-    }
-    .hero-gradient {
-      background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
-    }
-    .profile-aura {
-      box-shadow: 0 0 50px 10px rgba(0, 120, 212, 0.3);
-    }
-    .timeline-line {
-      background-color: var(--azure-blue);
-      box-shadow: 0 0 10px rgba(0, 120, 212, 0.4);
-    }
-    .pulse-node {
-      background-color: var(--azure-blue);
-      box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.7);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 120, 212, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
-    }
-    .card-glow:hover {
-      box-shadow: 0 0 25px rgba(0, 120, 212, 0.2);
-      transform: translateY(-5px);
-    }
-    .text-azure {
-      color: var(--azure-blue);
-    }
-    @layer components {
-      .tech-card {
-        @apply bg-[var(--card-bg)] border-l-4 border-l-[var(--primary-color)] p-8 rounded-r-xl transition-all duration-300 ease-in-out relative overflow-hidden;
-        --primary-color: #0078D4;
-        --card-bg: #2d3436;
-      }
-      .tech-card:hover {
-        @apply -translate-y-2;
-        box-shadow: 0 10px 40px -10px rgba(0, 120, 212, 0.4);
-      }
-      .skill-bar {
-        @apply h-1.5 w-full bg-slate-700 rounded-full overflow-hidden mt-1.5;
-      }
-      .skill-progress {
-        @apply h-full bg-[var(--primary-color)] rounded-full;
-      }
-      .cert-card-glow-azure:hover {
-        box-shadow: 0 0 30px rgba(0, 120, 212, 0.2);
-      }
-      .cert-card-glow-aws:hover {
-        box-shadow: 0 0 30px rgba(255, 153, 0, 0.2);
-      }
-    }
-  </style>
+  }
+  :root[data-theme="dark"] {
+    --bg: #111518;
+    --surface: #181d21;
+    --surface-2: #1f262b;
+    --ink: #eceff1;
+    --muted: #a2adb7;
+    --line: #2c353b;
+    --accent: #4cc2bd;
+    --accent-strong: #7fd9d4;
+    --on-accent: #08201f;
+    --focus: #f6ad55;
+    --bronze: #d99a5b;
+    --silver: #aab4c2;
+    --gold: #e3bc3e;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 20px rgba(0, 0, 0, .3);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
+  ul, ol { padding: 0; list-style: none; }
+  a { color: var(--accent-strong); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+  .skip {
+    position: absolute; left: var(--gutter); top: -60px; z-index: 20;
+    background: var(--accent); color: var(--on-accent); padding: 10px 14px; border-radius: 8px; text-decoration: none;
+  }
+  .skip:focus { top: 10px; }
+
+  /* ---------- header ---------- */
+  header.site {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar { display: flex; align-items: center; gap: 12px; min-height: 60px; }
+  .brand { font-weight: 700; letter-spacing: .01em; color: var(--ink); text-decoration: none; margin-right: auto; }
+  .brand span { color: var(--accent); }
+  nav ul { display: flex; gap: 2px; }
+  nav a {
+    display: inline-block; padding: 8px 10px; border-radius: 8px;
+    color: var(--muted); text-decoration: none; font-size: .95rem;
+  }
+  nav a:hover { color: var(--ink); background: var(--surface-2); }
+  .theme {
+    appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    width: 40px; height: 40px; border-radius: 10px; cursor: pointer; display: grid; place-items: center;
+  }
+  .theme:hover { background: var(--surface-2); }
+  .theme svg { width: 20px; height: 20px; }
+  @media (max-width: 720px) { nav { display: none; } }
+
+  /* ---------- sections ---------- */
+  section { padding: 56px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  .eyebrow {
+    font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700;
+    color: var(--accent-strong); margin-bottom: 10px;
+  }
+  h2 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem); line-height: 1.2; letter-spacing: -.01em; margin-bottom: 12px; }
+  .lede { color: var(--muted); max-width: 62ch; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 64px 0 48px; }
+  .hero h1 { font-size: clamp(2.2rem, 1.4rem + 4vw, 3.6rem); line-height: 1.05; letter-spacing: -.02em; }
+  .hero .role { font-size: clamp(1.05rem, .95rem + .6vw, 1.35rem); color: var(--accent-strong); font-weight: 600; margin: 12px 0 18px; }
+  .hero p.about { max-width: 62ch; font-size: 1.08rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; }
+  .chip {
+    border: 1px solid var(--line); background: var(--surface); padding: 5px 12px; border-radius: 999px;
+    font-size: .88rem; color: var(--muted);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px;
+    font-weight: 600; text-decoration: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  }
+  .btn:hover { background: var(--surface-2); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn.primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+  .btn svg { width: 18px; height: 18px; }
+
+  /* ---------- metrics ---------- */
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 28px; }
+  .metric {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px; box-shadow: var(--shadow);
+  }
+  .metric b { display: block; font-size: 1.7rem; line-height: 1.1; letter-spacing: -.01em; }
+  .metric span { display: block; color: var(--muted); font-size: .88rem; margin-top: 6px; line-height: 1.35; }
+  .note { color: var(--muted); font-size: .85rem; margin-top: 12px; }
+
+  /* ---------- featured project ---------- */
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: clamp(18px, 3vw, 32px);
+    box-shadow: var(--shadow); margin-top: 24px;
+  }
+  .project-head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-bottom: 8px; }
+  .project h3 { font-size: 1.35rem; line-height: 1.25; }
+  .badge {
+    font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); padding: 3px 9px; border-radius: 999px;
+  }
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 22px 0 6px; counter-reset: step; }
+  .flow li {
+    position: relative; background: var(--surface-2); border: 1px solid var(--line); border-top-width: 4px;
+    border-radius: 10px; padding: 12px 12px 14px; font-size: .88rem; line-height: 1.4;
+  }
+  .flow li strong { display: block; font-size: .95rem; margin-bottom: 2px; }
+  .flow li span { color: var(--muted); }
+  .flow li.landing { border-top-color: var(--muted); }
+  .flow li.bronze { border-top-color: var(--bronze); }
+  .flow li.silver { border-top-color: var(--silver); }
+  .flow li.gold { border-top-color: var(--gold); }
+  .flow li.serve { border-top-color: var(--accent); }
+  .flow li:not(:last-child)::after {
+    content: "\2192"; position: absolute; right: -9px; top: 50%; transform: translateY(-50%);
+    color: var(--muted); font-size: 1rem; background: var(--surface); line-height: 1; padding: 2px 0; z-index: 1;
+  }
+  .flow-caption { color: var(--muted); font-size: .85rem; margin-bottom: 22px; }
+  @media (max-width: 860px) {
+    .flow { grid-template-columns: 1fr; gap: 12px; }
+    .flow li:not(:last-child)::after { content: "\2193"; right: auto; left: 50%; top: auto; bottom: -13px; transform: translateX(-50%); }
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+  .point { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--bg); }
+  .point h4 { margin: 0 0 4px; font-size: 1rem; }
+  .point p { color: var(--muted); font-size: .92rem; line-height: 1.5; }
+  .proj-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px 22px; margin: 22px 0 6px; padding: 16px; background: var(--surface-2); border-radius: 12px; }
+  .proj-stats b { display: block; font-size: 1.25rem; }
+  .proj-stats span { color: var(--muted); font-size: .82rem; }
+  .status {
+    border-left: 4px solid var(--gold); background: var(--surface-2); border-radius: 0 10px 10px 0;
+    padding: 12px 16px; margin-top: 18px; font-size: .92rem; color: var(--muted);
+  }
+  .status strong { color: var(--ink); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .tag { font-size: .8rem; padding: 3px 10px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); }
+  .project .actions { margin-top: 20px; }
+
+  /* ---------- skills ---------- */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-top: 24px; }
+  .skill {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px;
+  }
+  .skill h3 { font-size: 1rem; margin-bottom: 10px; }
+
+  /* ---------- timeline ---------- */
+  .timeline { margin-top: 28px; position: relative; display: grid; gap: 22px; }
+  .job { display: grid; grid-template-columns: 170px 1fr; gap: 6px 28px; }
+  .job .when { color: var(--muted); font-size: .92rem; padding-top: 3px; }
+  .job h3 { font-size: 1.12rem; line-height: 1.3; }
+  .job ul { margin-top: 10px; display: grid; gap: 8px; }
+  .job li { position: relative; padding-left: 18px; }
+  .job li::before { content: ""; position: absolute; left: 0; top: .7em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  @media (max-width: 720px) { .job { grid-template-columns: 1fr; } }
+
+  /* ---------- certs ---------- */
+  .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 24px; }
+  .cert { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+  .cert b { display: block; margin-bottom: 2px; }
+  .cert span { color: var(--muted); font-size: .92rem; }
+
+  /* ---------- contact ---------- */
+  .contact { text-align: left; }
+  footer { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--muted); font-size: .88rem; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  @media print {
+    header.site, .actions, .theme { display: none; }
+    body { background: #fff; color: #000; }
+    section { padding: 20px 0; }
+  }
+</style>
 </head>
-<body class="bg-slate-dark text-slate-100 font-display min-h-screen flex flex-col overflow-x-hidden selection:bg-azure-blue selection:text-white">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- Portfolio Hero Section -->
-<nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-[#1a1a2e]/80 border-b border-white/10 transition-all duration-300">
-<div class="max-w-7xl mx-auto px-6 lg:px-8">
-<div class="flex items-center justify-between h-20">
-<div class="flex-shrink-0 cursor-pointer">
-<span class="text-2xl font-bold tracking-tight text-white">
-            Pavan B
-          </span>
-</div>
-<div class="hidden md:block">
-<div class="ml-10 flex items-baseline space-x-8">
-<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200" href="#about">About</a>
-<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200" href="#tech-stack">Technical Stack</a>
-<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200" href="#experience">Experience</a>
-<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200" href="#certifications">Certifications</a>
-<a class="text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200" href="#contact">Contact</a>
-</div>
-</div>
-<div class="-mr-2 flex md:hidden">
-<button class="inline-flex items-center justify-center p-2 rounded text-slate-400 hover:text-white focus:outline-none" type="button">
-<span class="material-icons">menu</span>
-</button>
-</div>
-</div>
-</div>
-</nav>
-<main class="hero-gradient relative flex-grow flex flex-col items-center justify-center pt-20">
-<div id="about" class="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10 py-16 md:py-24 lg:py-32">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-<div class="flex flex-col space-y-8">
-<div>
-<h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
-              Azure Data Engineer | <br/>
-<span class="text-azure-blue">11+ Years Experience</span>
-</h1>
-</div>
-<p class="text-xl md:text-2xl text-slate-300 max-w-2xl leading-relaxed">
-            5+ Years Specialized in Microsoft Fabric, Azure Synapse &amp; Data Pipeline Architecture
-          </p>
-<div class="flex flex-wrap items-center gap-5 pt-4">
-<a class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-azure-blue rounded-lg hover:brightness-110 shadow-lg shadow-azure-blue/20" href="#work">
-              View My Work
-            </a>
-<a class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 border-2 border-white rounded-lg hover:bg-white hover:text-slate-dark" href="#resume">
-              Download Resume
-            </a>
-</div>
-<div class="flex flex-wrap items-center gap-6 pt-6 text-slate-400 font-medium border-t border-white/10 w-fit">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-azure-blue">mail</span>
-<span>hello@gmail.com</span>
-</div>
-<div class="flex items-center gap-2">
-<svg class="w-5 h-5 fill-azure-blue" viewBox="0 0 24 24">
-<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
-</svg>
-<span>linkedin.com/in/helloname</span>
-</div>
-</div>
-</div>
-<div class="flex justify-center lg:justify-end">
-<div class="relative group">
-<div class="absolute inset-0 bg-azure-blue rounded-full blur-3xl opacity-20 profile-aura"></div>
-<div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[450px] rounded-full p-2 border-2 border-azure-blue/30 backdrop-blur-sm">
-<div class="w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl relative">
-<img alt="Pavan B Professional Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW0X9T_DYTjW4WJyF6b_aGWRpYqkmtY5Xi-bu0btues592tOx7lsWFrH0eMYA2SXstTbuC09BlF0_VSin5Ns04f7EsQ17SlOwKULidp1K5sPKSOQxB-GRKh0qMbDh62c1Ig_wpX9PPH-L_PaBfnfmYwaaOwXXqY8UT32ZNEBhYRAJfM0Jeznu8i_eUTzc-lDNQNCJw_T3RAiYPaljgju4VnSzKtU3p21ezPhh3C-LSGqAcn8I3FRjBuK9BEHVPXq-pnwx-Di0fL38"/>
-<div class="absolute inset-0 bg-azure-blue/10 mix-blend-overlay"></div>
-</div>
-</div>
-<div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full shadow-xl">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 bg-green-500 rounded-full"></span>
-<span class="text-sm font-bold text-white uppercase tracking-wider">Available for Consulting</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 opacity-50">
-<div class="flex flex-col items-center gap-2">
-<div class="w-6 h-10 border-2 border-white rounded-full flex justify-center pt-2">
-<div class="w-1 h-2 bg-white rounded-full"></div>
-</div>
-</div>
-</div>
-</main>
-<footer class="bg-slate-dark border-t border-white/10 py-8 px-6">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-slate-400 text-sm">© 2024 Pavan B. All rights reserved.</p>
-<div class="flex space-x-6">
-<a class="text-slate-400 hover:text-white transition-colors" href="#">Privacy Policy</a>
-<a class="text-slate-400 hover:text-white transition-colors" href="#">Terms of Service</a>
-</div>
-</div>
-</footer>
-<div class="h-1 w-full bg-gradient-to-r from-transparent via-azure-blue to-transparent opacity-30"></div>
-
-<!-- Professional Experience Timeline Section -->
-<header id="experience" class="w-full max-w-6xl mx-auto px-6 py-16 text-center">
-<h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4">
-    Pavan B
-  </h1>
-<p class="text-xl md:text-2xl font-medium text-azure tracking-wide uppercase">
-    Senior Azure Data Engineer
-  </p>
-<div class="mt-8 inline-flex items-center gap-4 bg-charcoal/50 px-6 py-3 rounded-full border border-slate-700">
-<span class="text-3xl font-bold text-white">11+</span>
-<span class="text-xs text-slate-400 uppercase tracking-widest leading-tight text-left">Years of Professional<br/>Data Engineering</span>
-</div>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Pavan <span>K</span></a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
 </header>
-<main class="w-full max-w-6xl mx-auto px-6 pb-32 relative">
-<div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 timeline-line transform md:-translate-x-1/2 z-0 opacity-50"></div>
-<div class="space-y-16 md:space-y-24 relative z-10">
-<div class="relative flex flex-col md:flex-row items-center group">
-<div class="hidden md:block md:w-1/2 md:pr-16 text-right">
-<span class="text-2xl font-bold text-azure">2021 — Present</span>
-</div>
-<div class="absolute left-[-2px] md:left-1/2 md:transform md:-translate-x-1/2 w-6 h-6 rounded-full pulse-node z-20"></div>
-<div class="md:w-1/2 md:pl-16 pl-10 w-full">
-<div class="md:hidden mb-2">
-<span class="text-lg font-bold text-azure">2021 — Present</span>
-</div>
-<article class="bg-charcoal p-8 rounded-2xl border-l-4 border-azure card-glow transition-all duration-300">
-<div class="flex flex-col mb-4">
-<h3 class="text-2xl font-bold text-white">HRA-NHS</h3>
-<p class="text-light-azure font-semibold text-lg">Senior Data Engineer</p>
-</div>
-<p class="text-slate-300 mb-6 leading-relaxed text-lg">
-            Led end-to-end insurance data pipeline development, engineered real-time API-based data integrations, optimized ETL performance for healthcare analytics.
-          </p>
-<div class="flex flex-wrap gap-2 pt-4 border-t border-slate-700">
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">Azure Data Factory</span>
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">Databricks</span>
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">Healthcare APIs</span>
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">ETL Optimization</span>
-</div>
-</article>
-</div>
-</div>
-<div class="relative flex flex-col md:flex-row-reverse items-center group">
-<div class="hidden md:block md:w-1/2 md:pl-16 text-left">
-<span class="text-2xl font-bold text-light-azure opacity-80">2013 — 2021</span>
-</div>
-<div class="absolute left-[-2px] md:left-1/2 md:transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-light-azure z-20"></div>
-<div class="md:w-1/2 md:pr-16 pl-10 md:pl-0 w-full">
-<div class="md:hidden mb-2">
-<span class="text-lg font-bold text-light-azure">2013 — 2021</span>
-</div>
-<article class="bg-charcoal p-8 rounded-2xl border-r-0 md:border-r-4 border-l-4 md:border-l-0 border-light-azure card-glow transition-all duration-300">
-<div class="flex flex-col mb-4">
-<h3 class="text-2xl font-bold text-white">WIPRO</h3>
-<p class="text-light-azure font-semibold text-lg">Senior Data Engineer</p>
-</div>
-<p class="text-slate-300 mb-6 leading-relaxed text-lg">
-            Managed large-scale data infrastructure projects, architected enterprise data solutions, led team of data engineers on mission-critical implementations.
-          </p>
-<div class="flex flex-wrap gap-2 pt-4 border-t border-slate-700">
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">Enterprise Architecture</span>
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">SQL Server</span>
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">Cloud Migration</span>
-<span class="px-3 py-1 rounded bg-dark-bg/50 text-xs font-medium text-slate-400 border border-slate-700">Team Leadership</span>
-</div>
-</article>
-</div>
-</div>
-</div>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1>Pavan K</h1>
+      <p class="role">Senior Data Engineer &middot; Data Platform &middot; Microsoft Fabric &middot; Azure</p>
+      <p class="about">Senior Data Engineer with 12+ years&rsquo; experience building and running secure, scalable cloud data platforms on Azure and Microsoft Fabric. I keep platforms reliable through monitoring, root cause analysis and out-of-hours cover, and I deliver them as code with Terraform and GitHub Actions. Analytical, detail-focused and calm under pressure.</p>
+      <div class="chips" aria-label="Core technologies">
+        <span class="chip">Microsoft Fabric</span><span class="chip">Azure Data Factory</span><span class="chip">Databricks</span>
+        <span class="chip">SQL Server &amp; T-SQL</span><span class="chip">PySpark</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#project">See the featured project</a>
+        <a class="btn" href="https://github.com/bpks" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/pavan-k9" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05a3.75 3.75 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="metrics" role="list" aria-label="Career highlights">
+        <div class="metric" role="listitem"><b>12+ years</b><span>building and running cloud data platforms</span></div>
+        <div class="metric" role="listitem"><b>25+</b><span>production pipelines in my current role</span></div>
+        <div class="metric" role="listitem"><b>~5M</b><span>rows a day into Azure Data Lake</span></div>
+        <div class="metric" role="listitem"><b>28%</b><span>lower Databricks compute spend (about &pound;25K a year)</span></div>
+        <div class="metric" role="listitem"><b>30%</b><span>less processing time, through incremental loads</span></div>
+        <div class="metric" role="listitem"><b>40s &rarr; &lt;10s</b><span>report load time for 150+ users after moving to governed Power BI</span></div>
+      </div>
+      <p class="note">These figures are from my professional work. They are not results from the demo project below, which uses generated data.</p>
+    </div>
+  </section>
+
+  <section id="project" aria-labelledby="project-title">
+    <div class="wrap">
+      <p class="eyebrow">Featured project</p>
+      <h2 id="project-title">A health-research data platform, end to end</h2>
+      <p class="lede">A small data platform I built end to end. Daily files go through a bronze, silver and gold pipeline with data quality and privacy controls, into a star schema in SQL with row-level security, deployed and run as code. All data is synthetic.</p>
+
+      <article class="project">
+        <div class="project-head">
+          <h3>health-data-platform</h3>
+          <span class="badge">Synthetic data</span>
+          <span class="badge">PySpark &middot; T-SQL &middot; Terraform</span>
+        </div>
+        <p class="lede">Each layer does one job. Bad rows go to quarantine with the rules they broke, instead of being dropped. Direct identifiers stay in the restricted zone.</p>
+
+        <ol class="flow" aria-label="Data flow">
+          <li class="landing"><strong>Landing</strong><span>Daily CSV extracts, untouched</span></li>
+          <li class="bronze"><strong>Bronze</strong><span>Raw strings, append-only, restricted</span></li>
+          <li class="silver"><strong>Silver</strong><span>Typed, validated, pseudonymised, upserted</span></li>
+          <li class="gold"><strong>Gold</strong><span>Star schema and monthly mart</span></li>
+          <li class="serve"><strong>Azure SQL</strong><span>Row-level security and masking</span></li>
+        </ol>
+        <p class="flow-caption">Rows failing an error-level rule go to a quarantine table beside silver, with the names of the rules they failed.</p>
+
+        <div class="proj-stats" role="list" aria-label="Results from the demo run on synthetic data">
+          <div role="listitem"><b>4%</b><span>of rows re-processed on day 2 (9,243 of 233,654)</span></div>
+          <div role="listitem"><b>3,233</b><span>rows quarantined, each with its reasons</span></div>
+          <div role="listitem"><b>58</b><span>tests passing, including a two-day end-to-end run and recovery from a partial run</span></div>
+          <div role="listitem"><b>Type 2</b><span>history: a renamed site keeps both versions, and facts join to the one valid on their date</span></div>
+        </div>
+
+        <div class="grid-2" style="margin-top:18px">
+          <div class="point"><h4>Incremental and idempotent</h4><p>Watermarks per entity and upserts where the latest change wins. Re-running a batch, or receiving a stale record, cannot corrupt anything. Tests prove both.</p></div>
+          <div class="point"><h4>Quality and privacy</h4><p>Rules with severities, a quarantine zone, salted pseudonyms, birth year instead of date of birth. The docs also say plainly what each control does not do.</p></div>
+          <div class="point"><h4>Warehouse and security</h4><p>Kimball star schema with one definition per measure, columnstore facts, MERGE procedures, row-level security, dynamic data masking and DBA health scripts.</p></div>
+          <div class="point"><h4>Platform as code and operations</h4><p>Terraform for dev, test and prod, a deploy workflow that plans, waits for a reviewer, then applies the reviewed plan, plus KQL alerts and an incident and change runbook.</p></div>
+        </div>
+
+        <div class="status">
+          <strong>Honest status.</strong> The Python pipeline is run and tested end to end on Spark 3.5 and 4. The T-SQL, Terraform, GitHub Actions, Databricks and Fabric parts are written and statically checked, but have not been run against live services. The repository lists exactly what was and was not verified.
+        </div>
+
+        <div class="tags" aria-label="Technologies used">
+          <span class="tag">PySpark</span><span class="tag">Kimball</span><span class="tag">T-SQL</span>
+          <span class="tag">Row-level security</span><span class="tag">Data masking</span><span class="tag">Terraform</span>
+          <span class="tag">GitHub Actions</span><span class="tag">Log Analytics / KQL</span><span class="tag">pytest</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" id="repo-link" href="https://github.com/bpks/health-data-platform" rel="noopener">View the repository</a>
+          <a class="btn" href="https://github.com/bpks/health-data-platform/tree/main/docs" rel="noopener">Read the design docs</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-title">
+    <div class="wrap">
+      <p class="eyebrow">Experience</p>
+      <h2 id="exp-title">Where I have done the work</h2>
+
+      <div class="timeline">
+        <article class="job">
+          <div class="when">Oct 2021 &ndash; present</div>
+          <div>
+            <h3>Senior Data Engineer</h3>
+            <ul>
+              <li>Run and develop a production Azure and Microsoft Fabric platform: 25+ ETL/ELT pipelines across Fabric, Data Factory, Databricks and Synapse, ingesting about 5 million rows a day into Azure Data Lake.</li>
+              <li>Build Fabric Lakehouses, the Warehouse, Notebooks and Pipelines on OneLake, loading Delta tables through Bronze, Silver and Gold layers.</li>
+              <li>Keep the platform reliable with monitoring and alerting (Azure Monitor, Log Analytics); handle incidents, requests, changes and problems to agreed SLAs with out-of-hours cover; lead root cause analysis and ship permanent fixes.</li>
+              <li>Deliver platform as code: Azure infrastructure in Terraform, deployed through GitHub Actions and Azure DevOps across dev, test and production; Databricks released with Asset Bundles; routine tasks scripted in PowerShell.</li>
+              <li>Manage and optimise SQL Server, Azure SQL, Synapse and Databricks, cutting processing time by 30% and Databricks compute spend by 28% (&pound;25K a year) through incremental loads.</li>
+              <li>Own security and governance: Zero Trust principles, least-privilege RBAC, row-level security, data masking, Key Vault, Unity Catalog and Microsoft Purview, with UK GDPR controls protecting sensitive health data.</li>
+              <li>Integrate legacy on-premises, cloud and third-party sources through APIs, Informatica and Azure services, with batch and streaming loads (Event Hubs, Spark Structured Streaming).</li>
+              <li>Build automated data quality checks with Python, pytest and SQL validation, and Kimball dimensional models with conformed dimensions that give five business units one set of measure definitions.</li>
+              <li>Replaced manual Excel reporting with governed Power BI, saving about 15 analyst hours a week and cutting report load times from 40 seconds to under 10 for 150+ users.</li>
+              <li>Work in an Agile Scrum team with analysts, data scientists, engineers and 10+ stakeholders, from technical teams to directors; mentor five junior engineers.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="when">Sep 2013 &ndash; Oct 2021</div>
+          <div>
+            <h3>Technical Lead / Data Engineer</h3>
+            <ul>
+              <li>Designed and ran Azure Data Factory ETL/ELT pipelines handling 1M+ records a month, improving performance by 30% through Databricks and Delta table optimisation.</li>
+              <li>Secured financial data in Azure Data Lake for 10,000+ users (Key Vault, encryption, RBAC); built Snowflake warehouse solutions and 10+ Power BI reports; improved pipeline reliability for 100+ daily users through root cause analysis.</li>
+              <li>Ran 5+ client and stakeholder workshops turning business requirements into scalable solutions; mentored 10 engineers.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <p class="eyebrow">Skills</p>
+      <h2 id="skills-title">What I work with</h2>
+      <div class="skills">
+        <div class="skill"><h3>Data platform &amp; cloud</h3><div class="tags" style="margin-top:0">
+          <span class="tag">Microsoft Fabric (Lakehouse, Warehouse, OneLake, Pipelines, Notebooks)</span><span class="tag">Azure Data Factory</span><span class="tag">Azure Synapse</span><span class="tag">Azure Databricks</span><span class="tag">Azure SQL</span><span class="tag">Azure Data Lake Storage</span><span class="tag">Snowflake</span><span class="tag">AWS (certified 2019)</span></div></div>
+        <div class="skill"><h3>SQL Server &amp; languages</h3><div class="tags" style="margin-top:0">
+          <span class="tag">SQL Server management and optimisation</span><span class="tag">T-SQL</span><span class="tag">Azure SQL</span><span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">PowerShell</span></div></div>
+        <div class="skill"><h3>Platform as code &amp; DevOps</h3><div class="tags" style="margin-top:0">
+          <span class="tag">Terraform</span><span class="tag">GitHub &amp; GitHub Actions</span><span class="tag">Azure DevOps</span><span class="tag">Git</span><span class="tag">CI/CD</span><span class="tag">Configuration management</span></div></div>
+        <div class="skill"><h3>Monitoring, support &amp; cost</h3><div class="tags" style="margin-top:0">
+          <span class="tag">Observability and alerting</span><span class="tag">Incident, request, change and problem management</span><span class="tag">Root cause analysis</span><span class="tag">Out-of-hours support</span><span class="tag">Capacity management</span><span class="tag">Cloud cost monitoring</span></div></div>
+        <div class="skill"><h3>Security &amp; governance</h3><div class="tags" style="margin-top:0">
+          <span class="tag">Zero Trust</span><span class="tag">RBAC</span><span class="tag">Row-level security</span><span class="tag">Data masking</span><span class="tag">Key Vault</span><span class="tag">Unity Catalog</span><span class="tag">UK GDPR</span></div></div>
+        <div class="skill"><h3>Collaboration</h3><div class="tags" style="margin-top:0">
+          <span class="tag">Agile / Scrum</span><span class="tag">Stakeholder engagement</span><span class="tag">Mentoring</span><span class="tag">Working with legacy and current technology</span></div></div>
+      </div>
+
+      <div class="certs">
+        <div class="cert"><b>Microsoft Certified: Azure Data Engineer Associate</b><span>DP-203 &middot; April 2024</span></div>
+        <div class="cert"><b>AWS Certified Solutions Architect &ndash; Associate</b><span>February 2019</span></div>
+        <div class="cert"><b>B.Tech, Computer Science &amp; Information Technology</b><span>Jawaharlal Nehru Technological University</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title">Let&rsquo;s talk</h2>
+      <p class="lede">Open to senior data platform roles. LinkedIn is the best way to reach me.</p>
+      <div class="actions" style="margin-top:20px">
+        <a class="btn primary" href="https://www.linkedin.com/in/pavan-k9" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/bpks" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="w-full bg-charcoal/30 border-t border-slate-800">
-<div class="max-w-6xl mx-auto px-6 py-12">
-<div class="flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="text-center md:text-left">
-<h4 class="text-xl font-bold text-white mb-2">Ready to scale your data?</h4>
-<p class="text-slate-400">Specializing in Azure Cloud Architecture &amp; Big Data Engineering.</p>
-</div>
-<div class="flex gap-4">
-<a class="px-8 py-4 rounded-xl bg-azure text-white font-bold hover:bg-blue-600 transition-all shadow-lg shadow-azure/20 flex items-center gap-2" href="#">
-          Contact Pavan
-          <span class="material-symbols-outlined text-sm">send</span>
-</a>
-</div>
-</div>
-<div class="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 tracking-widest uppercase">
-<p>© 2024 Pavan B. Built with Azure Precision.</p>
-<div class="flex gap-8 mt-4 md:mt-0">
-<a class="hover:text-azure transition-colors" href="#">LinkedIn</a>
-<a class="hover:text-azure transition-colors" href="#">GitHub</a>
-</div>
-</div>
-</div>
+
+<footer>
+  <div class="wrap">
+    The featured project uses generated data only and contains nothing from any employer or client.
+  </div>
 </footer>
 
-<!-- Technical Skill Grid Section -->
-<main id="tech-stack">
-<section class="relative py-24 overflow-hidden">
-<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"></div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-<h2 class="text-primary font-bold text-sm tracking-[0.3em] uppercase mb-4">Core Competencies</h2>
-<h1 class="text-4xl md:text-6xl font-bold text-white mb-8">Technical Mastery</h1>
-<p class="max-w-3xl mx-auto text-xl text-slate-400 leading-relaxed font-light">
-          Architecting high-performance data ecosystems with 11+ years of expertise in the Azure cloud environment.
-        </p>
-</div>
-</section>
-<section class="pb-32 px-4 sm:px-6 lg:px-8">
-<div class="max-w-7xl mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-<div class="tech-card group">
-<div class="flex items-center gap-4 mb-8">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-4xl">database</span>
-</div>
-<div>
-<h3 class="text-2xl font-bold text-white">Data Engineering</h3>
-<p class="text-sm text-slate-500 font-medium">Cloud Infrastructure &amp; Warehousing</p>
-</div>
-</div>
-<div class="space-y-6">
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Microsoft Fabric</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">One Lake</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Azure Data Factory (ADF)</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 98%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Power BI</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Advanced</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-</div>
-</div>
-</div>
-<div class="tech-card group">
-<div class="flex items-center gap-4 mb-8">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-4xl">cyclone</span>
-</div>
-<div>
-<h3 class="text-2xl font-bold text-white">Big Data Technologies</h3>
-<p class="text-sm text-slate-500 font-medium">Distributed Systems &amp; Real-time</p>
-</div>
-</div>
-<div class="space-y-6">
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Databricks</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 96%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Apache Spark</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 94%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Delta Lake</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Advanced</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 88%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Apache Kafka</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Advanced</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 82%"></div></div>
-</div>
-</div>
-</div>
-<div class="tech-card group">
-<div class="flex items-center gap-4 mb-8">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-4xl">terminal</span>
-</div>
-<div>
-<h3 class="text-2xl font-bold text-white">Programming Languages</h3>
-<p class="text-sm text-slate-500 font-medium">Functional &amp; Query Languages</p>
-</div>
-</div>
-<div class="space-y-6">
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Python</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 98%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">SQL</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 100%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Scala</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Advanced</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">T-SQL</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
-</div>
-</div>
-</div>
-<div class="tech-card group">
-<div class="flex items-center gap-4 mb-8">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-4xl">cloud_sync</span>
-</div>
-<div>
-<h3 class="text-2xl font-bold text-white">DevOps &amp; Cloud</h3>
-<p class="text-sm text-slate-500 font-medium">CI/CD &amp; Containerization</p>
-</div>
-</div>
-<div class="space-y-6">
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Azure DevOps</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Git</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">CI/CD Pipelines</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Expert</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-</div>
-<div>
-<div class="flex justify-between items-end mb-1">
-<span class="text-sm font-medium text-slate-300">Docker</span>
-<span class="text-[10px] font-bold text-primary uppercase tracking-tighter bg-primary/10 px-2 py-0.5 rounded">Advanced</span>
-</div>
-<div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="border-t border-white/5 py-12 bg-bg-main">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="flex items-center gap-2">
-<div class="h-6 w-6 rounded bg-primary flex items-center justify-center text-white font-bold text-xs">P</div>
-<span class="text-white font-bold tracking-tight">Pavan B</span>
-<span class="text-slate-600 text-sm ml-2">| © 2024</span>
-</div>
-<div class="flex gap-8">
-<a class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 text-sm" href="#">
-<span class="material-symbols-outlined text-lg">alternate_email</span> Contact
-          </a>
-<a class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 text-sm" href="#">
-<span class="material-symbols-outlined text-lg">hub</span> LinkedIn
-          </a>
-</div>
-</div>
-</div>
-</footer>
-
-<!-- Certifications and Footer Section -->
-<main class="flex-grow">
-<div class="container mx-auto px-4 py-20 text-center opacity-20">
-<h2 class="text-4xl font-bold mb-4">Portfolio Content Above</h2>
-</div>
-<section id="certifications" class="py-24 bg-[#1a1a2e] relative overflow-hidden">
-<div class="container mx-auto px-4 relative z-10">
-<div class="text-center mb-16">
-<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
-            Certifications &amp; Credentials
-          </h2>
-<div class="w-24 h-1 bg-[#0078D4] mx-auto rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-<div class="group relative bg-[#2d3436] p-8 md:p-10 border-l-4 border-[#0078D4] rounded-r-xl transition-all duration-300 transform hover:-translate-y-2 cert-card-glow-azure">
-<div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-<div class="relative">
-<div class="absolute inset-0 bg-[#0078D4] opacity-20 blur-2xl rounded-full group-hover:opacity-40 transition-opacity"></div>
-<img alt="DP-203 Azure Data Engineer Associate" class="w-32 h-32 md:w-40 md:h-40 object-contain relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE3lJQs620GRQC1-udEcVTDRIW203GbB3mwhJaI2ybnGcEfA9y4LarL_0ZKFetStCETF4CcgnOR9zLE7tODuqKNGYJNpcjTbNs-6V0M4AVhciGwUfhxhxpmHF4l19tcBtCF1ZORrt9w0Z4YRQtU2E10m8dh98JY2wvB_Ot1GV7SSSgdQ0s9asln7JYt5x_pHW4_wBoc-XJrmmyXTEBAPIDNINnLJ31E3WAR_NLg3eDd0VJohDl9VeabvyQ9c7GXYJGnp7PJC4Nrp8"/>
-</div>
-<div class="flex-1 text-center md:text-left">
-<span class="text-[#0078D4] font-bold text-sm tracking-widest uppercase">Microsoft</span>
-<h3 class="text-2xl md:text-3xl font-bold text-white mt-2 mb-4">DP-203: Azure Data Engineer Associate</h3>
-<div class="space-y-3">
-<div class="flex items-center justify-center md:justify-start gap-2 text-slate-300">
-<span class="material-symbols-outlined text-sm">calendar_today</span>
-<span class="text-sm">Validated: 2024</span>
-</div>
-<div class="flex items-center justify-center md:justify-start gap-2">
-<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-<span class="text-emerald-400 text-sm font-medium tracking-wide uppercase">Actively Maintained Certification</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="group relative bg-[#2d3436] p-8 md:p-10 border-l-4 border-[#FF9900] rounded-r-xl transition-all duration-300 transform hover:-translate-y-2 cert-card-glow-aws">
-<div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-<div class="relative">
-<div class="absolute inset-0 bg-[#FF9900] opacity-10 blur-2xl rounded-full group-hover:opacity-30 transition-opacity"></div>
-<img alt="AWS Certified Solutions Architect – Associate" class="w-32 h-32 md:w-40 md:h-40 object-contain relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJvOI1MbqNUqIBsSbnPBx8vdh0RFHJ2RKdXUNy5E6k1ImLOScc4PLg2WvQEGNPnlJya42vS34TijhdKQjYYwbDNEeDmijrIqIvbe8WO-JTeBsqJ5bhutV9CG72d4N7X5OGJejLAOxm3sBRqW279CziWn9xlbZSnB1g-2WpHWFoqpy0uhT0G6I1opsnHIu-SeTQaK2BBiOgT2q0IqY_nwPOCmilJb-yxbS8EE7QS_K75rxoORqSwpa4HPIq2QFp-hBY9ZkP2ElKTYk"/>
-</div>
-<div class="flex-1 text-center md:text-left">
-<span class="text-[#FF9900] font-bold text-sm tracking-widest uppercase">Amazon Web Services</span>
-<h3 class="text-2xl md:text-3xl font-bold text-white mt-2 mb-4">AWS Solutions Architect – Associate</h3>
-<div class="space-y-3">
-<div class="flex items-center justify-center md:justify-start gap-2 text-slate-300">
-<span class="material-symbols-outlined text-sm">calendar_today</span>
-<span class="text-sm">Validated: 2023</span>
-</div>
-<div class="flex items-center justify-center md:justify-start gap-2">
-<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-<span class="text-emerald-400 text-sm font-medium tracking-wide uppercase">Actively Maintained Certification</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer id="contact" class="bg-[#2d3436] pt-20 pb-10 text-slate-300 border-t border-white/5">
-<div class="container mx-auto px-4">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-16">
-<div class="max-w-xl">
-<h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Contact</h3>
-<h2 class="text-4xl md:text-5xl font-bold text-[#0078D4] mb-6">Let's Connect</h2>
-<p class="text-lg text-slate-400 leading-relaxed">
-            Interested in discussing data architecture, cloud migrations, or scalable engineering solutions? I'm currently open to new opportunities and collaborations.
-          </p>
-</div>
-<div class="flex flex-col gap-6 w-full md:w-auto">
-<a class="flex items-center gap-4 group p-4 bg-white/5 rounded-lg border border-white/10 hover:border-[#0078D4] hover:bg-white/10 transition-all" href="mailto:hello@gmail.com">
-<div class="h-12 w-12 rounded-full bg-[#0078D4]/10 flex items-center justify-center text-[#0078D4]">
-<span class="material-symbols-outlined">mail</span>
-</div>
-<div>
-<p class="text-xs text-slate-500 uppercase font-bold tracking-tighter">Email Me</p>
-<p class="text-white font-medium group-hover:text-[#0078D4] transition-colors">hello@gmail.com</p>
-</div>
-</a>
-<a class="flex items-center gap-4 group p-4 bg-white/5 rounded-lg border border-white/10 hover:border-[#0078D4] hover:bg-white/10 transition-all" href="https://linkedin.com/in/helloname">
-<div class="h-12 w-12 rounded-full bg-[#0078D4]/10 flex items-center justify-center text-[#0078D4]">
-<span class="material-symbols-outlined">link</span>
-</div>
-<div>
-<p class="text-xs text-slate-500 uppercase font-bold tracking-tighter">LinkedIn</p>
-<p class="text-white font-medium group-hover:text-[#0078D4] transition-colors">linkedin.com/in/helloname</p>
-</div>
-</a>
-</div>
-</div>
-<div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-slate-500 text-sm">
-          © 2024 Pavan B. All rights reserved.
-        </p>
-<a class="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors" href="#">
-          Back to top
-          <span class="material-symbols-outlined text-lg group-hover:-translate-y-1 transition-transform">arrow_upward</span>
-</a>
-</div>
-</div>
-</footer>
-
-</body>
-</html>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme');
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    function current() {
+      var set = root.getAttribute('data-theme');
+      return set ? set : (mq.matches ? 'dark' : 'light');
+    }
+    btn.addEventListener('click', function () {
+      root.setAttribute('data-theme', current() === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
 </body>
 </html>
